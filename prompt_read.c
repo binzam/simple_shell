@@ -43,14 +43,14 @@ char *_read(void)
 	}
 	if (buff[count - 1] == '\n' || buff[count - 1] == '\t')
 		buff[count - 1] = '\0';
-		for (i = 0; buff[i]; i++)
+	for (i = 0; buff[i]; i++)
+	{
+		if (buff[i] == '#' && buff[i - 1] == ' ')
 		{
-			if (buff[i] == '#' && buff[i - 1] == ' ')
-			{
-				buff[i] = '\0';
-				break;
+			buff[i] = '\0';
+			break;
 			}
-		}
+	}
 	return (buff);
 }
 
